@@ -24,21 +24,22 @@ usecase "22.Registrar estacionamiento" as u22
 :responsable lugar: as rl 
 usecase "23.Registrar lugar" as u23
 usecase "24.Modificae lugar" as u24
-:reponsable tipo de lugar: as rtl
 usecase "25.Registrar tipo de lugar" as u25
 usecase "26.Modificar tipo de lugar" as u26
 usecase "27 Consultar tipo de lugar" as u27
-:responsable tipo cuenta: as rtc
+:responsable cuenta: as rc
 usecase "28.Registrar tipo de cuenta" as u28
 usecase "29.Consultar tipo de cuenta" as u29
 usecase "30.Modificar tipo de cuenta" as u30
+usecase "31.Modificar cuenta" as u31
+usecase "32.Consultar cuenta" as u32
 :responsable tarifa: as rt
-usecase "31. Registrar tarifa" as u31
-usecase "32.Modificar datos de tarifa" as u32
-usecase "33.Consultar datos tarifa" as u33
+usecase "33 Registrar tarifa" as u33
+usecase "34.Modificar datos de tarifa" as u34
+usecase "35.Consultar datos tarifa" as u35
 :responsable tipo usuario: as rtu
-usecase "34.Registrar tipo de usuario" as u34
-usecase "35.Modificar tipo de usuario" as u35
+usecase "36.Registrar tipo de usuario" as u36
+usecase "37.Modificar tipo de usuario" as u37
 
 
 
@@ -47,11 +48,9 @@ usecase "35.Modificar tipo de usuario" as u35
 eie --> u1
 eie --> u2
 eie --> u3
-eie --> u9
-eie --> u10
-eie --> u11
 
-u12..> u13:<<include>>
+
+roa ..> u13:<<include>>
 roa --> u14
 roa --> u15
 roa --> u16
@@ -67,21 +66,21 @@ re --> u22
 
 rl --> u23
 rl --> u24
+rl --> u25
+rl --> u26
+rl --> u27
 
-rtl --> u25
-rtl --> u26
-rtl --> u27
+rc --> u28
+rc --> u29
+rc --> u30
+rc --> u31
+rc --> u32
 
-rtc --> u28
-rtc --> u29
-rtc --> u30
-
-rt --> u31
-rt --> u32
 rt --> u33
+rt --> u34
+rt --> u35
 
-rtu --> u34
-rtu --> u35
-
+rtu --> u36
+rtu --> u37
 
 @enduml
