@@ -1,0 +1,104 @@
+@startuml tpi
+
+:Encargado Ingreso Egreso: as eie
+usecase "1.Registrar ingreso" as u1
+usecase "2.Registrar egreso" as u2
+usecase "3.Registrar cobro de estacionamiento" as u3
+usecase "4.Emitir comprobante de cobro de estacionamiento" as u4
+
+
+:Responsable Oficina Administrativa: as roa 
+usecase "5.Registrar vehículo" as u5
+usecase "6.Emitir comprobante de registro de vehículo" as u6
+usecase "7.Registrar cuenta" as u7
+usecase "8.Registrar baja de cuenta" as u8
+usecase "9.Registrar carga de saldo" as u9
+usecase "10.Consultar carga de saldo" as u10
+usecase "11.Emitir comprobante carga de saldo" as u11
+usecase "12.Registrar carga de abono mensual" as u12
+usecase "13.Consultar carga de abono mensual" as u13
+usecase "14.Emitir comprobante carga de abono mensual" as u14
+usecase "15.Registar baja de vehículo" as u15
+
+:Sistemas UTN: as s 
+usecase "16.Consultar usuario utn" as u16
+
+:Responsable Estacionamiento: as re
+usecase "17.Registrar estacionamiento" as u17
+
+:Responsable lugar: as rl 
+usecase "18.Registrar lugar" as u18
+usecase "19.Modificar lugar" as u19
+usecase "20.Registrar tipo de lugar" as u20
+usecase "21.Modificar tipo de lugar" as u21
+usecase "22 Consultar tipo de lugar" as u22
+
+:Responsable cuenta: as rc
+usecase "23.Registrar tipo de cuenta" as u23
+usecase "24.Consultar tipo de cuenta" as u24
+usecase "25.Modificar tipo de cuenta" as u25
+usecase "26.Modificar cuenta" as u26
+usecase "27.Consultar cuenta" as u27
+
+:Responsable tarifa: as rt
+usecase "28.Registrar tarifa" as u28
+usecase "29.Modificar datos de tarifa" as u29
+usecase "30.Consultar datos tarifa" as u30
+
+:Responsable tipo usuario: as rtu
+usecase "31.Registrar tipo de usuario" as u31
+usecase "32.Modificar tipo de usuario" as u32
+
+eie --> u1
+eie --> u2
+eie --> u3
+eie --> u4
+
+roa --> u5
+roa --> u6
+roa --> u7
+roa --> u8
+roa --> u9
+roa --> u10
+roa --> u11
+roa --> u12
+roa --> u13
+roa --> u14
+roa --> u15
+
+s --> u16 
+
+re --> u17
+
+rl --> u18
+rl --> u19
+rl --> u20
+rl --> u21
+rl --> u22
+
+rc --> u23
+rc --> u24
+rc --> u25
+rc --> u26
+rc --> u27
+
+rt --> u28
+rt --> u29
+rt --> u30
+
+rtu --> u31
+rtu --> u32
+
+u2 ..> u3:<<extend>> 
+'consultar extensión
+u3 ..>u4 <<include>>
+
+u5 ..> u6:<<include>>
+u5 <.. u7:<<extend>>
+
+u7 ..> u16:<<include>>
+
+u9 ..> u11:<<include>>
+u12 ..> u14:<<include>>
+
+@enduml
