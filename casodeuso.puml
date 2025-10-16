@@ -4,6 +4,8 @@
 usecase "1.Registrar ingreso" as u1
 usecase "2.Registrar egreso" as u2
 usecase "3.Registrar cobro de estacionamiento" as u3
+usecase "4.Emitir comprobante de cobro de estacionamiento" as u4
+
 
 :Responsable Oficina Administrativa: as roa 
 usecase "12.Registrar vehículo" as u12
@@ -49,9 +51,11 @@ usecase "37.Modificar tipo de usuario" as u37
 
 eie --> u1
 eie --> u2
+eie --> u3
+eie --> u4
 u2 ..> u3:<<extend>> 
 'consultar extensión
-
+u3 ..>u4 <<include>>
 
 roa --> u12
 roa --> u13
