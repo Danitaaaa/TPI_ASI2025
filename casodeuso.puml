@@ -8,95 +8,97 @@ usecase "4.Emitir comprobante de cobro de estacionamiento" as u4
 
 
 :Responsable Oficina Administrativa: as roa 
-usecase "12.Registrar vehículo" as u12
-usecase "40.Registar baja de vehículo" as u40
-usecase "13.Emitir comprobante de registro de vehículo" as u13 
-usecase "14.Registrar cuenta" as u14
-usecase "15.Registrar baja de cuenta" as u15
-usecase "16.Registrar carga de saldo" as u16
-usecase "17.Consultar carga de saldo" as u17
-usecase "18.Emitir comprobante carga de saldo" as u18 
-usecase "19.Registrar carga de abono mensual" as u19
-usecase "20.Consultar carga de abono mensual" as u20
-usecase "21.Emitir comprobante carga de abono mensual" as u21
+usecase "5.Registrar vehículo" as u5
+usecase "6.Emitir comprobante de registro de vehículo" as u6
+usecase "7.Registrar cuenta" as u7
+usecase "8.Registrar baja de cuenta" as u8
+usecase "9.Registrar carga de saldo" as u9
+usecase "10.Consultar carga de saldo" as u10
+usecase "11.Emitir comprobante carga de saldo" as u11
+usecase "12.Registrar carga de abono mensual" as u12
+usecase "13.Consultar carga de abono mensual" as u13
+usecase "14.Emitir comprobante carga de abono mensual" as u14
+usecase "15.Registar baja de vehículo" as u15
 
 :Sistemas UTN: as s 
-usecase "39.Consultar usuario utn" as u39
+usecase "16.Consultar usuario utn" as u16
 
 :Responsable Estacionamiento: as re
-usecase "22.Registrar estacionamiento" as u22
+usecase "17.Registrar estacionamiento" as u17
 
 :Responsable lugar: as rl 
-usecase "23.Registrar lugar" as u23
-usecase "24.Modificar lugar" as u24
-usecase "25.Registrar tipo de lugar" as u25
-usecase "26.Modificar tipo de lugar" as u26
-usecase "27 Consultar tipo de lugar" as u27
+usecase "18.Registrar lugar" as u18
+usecase "19.Modificar lugar" as u19
+usecase "20.Registrar tipo de lugar" as u20
+usecase "21.Modificar tipo de lugar" as u21
+usecase "22 Consultar tipo de lugar" as u22
 
 :Responsable cuenta: as rc
-usecase "28.Registrar tipo de cuenta" as u28
-usecase "29.Consultar tipo de cuenta" as u29
-usecase "30.Modificar tipo de cuenta" as u30
-usecase "31.Modificar cuenta" as u31
-usecase "32.Consultar cuenta" as u32
+usecase "23.Registrar tipo de cuenta" as u23
+usecase "24.Consultar tipo de cuenta" as u24
+usecase "25.Modificar tipo de cuenta" as u25
+usecase "26.Modificar cuenta" as u26
+usecase "27.Consultar cuenta" as u27
 
 :Responsable tarifa: as rt
-usecase "33 Registrar tarifa" as u33
-usecase "34.Modificar datos de tarifa" as u34
-usecase "35.Consultar datos tarifa" as u35
+usecase "28.Registrar tarifa" as u28
+usecase "29.Modificar datos de tarifa" as u29
+usecase "30.Consultar datos tarifa" as u30
 
 :Responsable tipo usuario: as rtu
-usecase "36.Registrar tipo de usuario" as u36
-usecase "37.Modificar tipo de usuario" as u37
+usecase "31.Registrar tipo de usuario" as u31
+usecase "32.Modificar tipo de usuario" as u32
 
 eie --> u1
 eie --> u2
 eie --> u3
 eie --> u4
-u2 ..> u3:<<extend>> 
-'consultar extensión
-u3 ..>u4 <<include>>
 
+roa --> u5
+roa --> u6
+roa --> u7
+roa --> u8
+roa --> u9
+roa --> u10
+roa --> u11
 roa --> u12
 roa --> u13
 roa --> u14
 roa --> u15
-roa --> u16
-roa --> u17
-roa --> u40
 
-u16 ..> u18:<<include>>
+s --> u16 
 
-roa --> u19
-roa --> u20
-u19 ..> u21:<<include>>
+re --> u17
 
-u12 ..> u13:<<include>>
+rl --> u18
+rl --> u19
+rl --> u20
+rl --> u21
+rl --> u22
 
-re --> u22
+rc --> u23
+rc --> u24
+rc --> u25
+rc --> u26
+rc --> u27
 
-rl --> u23
-rl --> u24
-rl --> u25
-rl --> u26
-rl --> u27
+rt --> u28
+rt --> u29
+rt --> u30
 
-rc --> u28
-rc --> u29
-rc --> u30
-rc --> u31
-rc --> u32
+rtu --> u31
+rtu --> u32
 
-rt --> u33
-rt --> u34
-rt --> u35
+u2 ..> u3:<<extend>> 
+'consultar extensión
+u3 ..>u4 <<include>>
 
-rtu --> u36
-rtu --> u37
+u5 ..> u6:<<include>>
+u5 <.. u7:<<extend>>
 
-s --> u39 
-u14 ..> u39:<<include>>
-u12 <.. u14:<<extend>>
+u7 ..> u16:<<include>>
 
+u9 ..> u11:<<include>>
+u12 ..> u14:<<include>>
 
 @enduml
