@@ -1,0 +1,36 @@
+@startuml maquina_de_estado
+[*] --> Sistema_Inactivo
+
+state Sistema_Inactivo {
+    [*] --> Esperando_Accion
+}
+
+Esperando_Accion --> Vehiculo_Registrado : Registrar vehículo
+Vehiculo_Registrado --> Cuenta_Creada : Registrar cuenta
+Cuenta_Creada --> Saldo_Cargado : Registrar carga de saldo
+Saldo_Cargado --> Abono_Registrado : Registrar abono mensual
+Abono_Registrado --> Estacionamiento_Activo : Registrar estacionamiento
+Estacionamiento_Activo --> Cobro_Realizado : Registrar cobro de estacionamiento
+Cobro_Realizado --> Vehiculo_Egresado : Registrar egreso
+Vehiculo_Egresado --> Esperando_Accion
+
+Vehiculo_Registrado --> Comprobante_Emitido : Emitir comprobante de registro
+Saldo_Cargado --> Comprobante_Saldo : Emitir comprobante carga de saldo
+Abono_Registrado --> Comprobante_Abono : Emitir comprobante carga de abono
+
+state Comprobante_Emitido {
+    [*] --> Emitido
+    Emitido --> [*]
+}
+
+state Comprobante_Saldo {
+    [*] --> Emitido
+    Emitido --> [*]
+}
+
+state Comprobante_Abono {
+    [*] --> Emitido
+    Emitido --> [*]
+}
+
+@enduml
