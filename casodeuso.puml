@@ -7,6 +7,7 @@ usecase "3.Registrar cobro de estacionamiento" as u3
 
 :Responsable Oficina Administrativa: as roa 
 usecase "12.Registrar vehículo" as u12
+usecase "40.Registar baja de vehículo" as u40
 usecase "13.Emitir comprobante de registro de vehículo" as u13 
 usecase "14.Registrar cuenta" as u14
 usecase "15.Registrar baja de cuenta" as u15
@@ -17,50 +18,56 @@ usecase "19.Registrar carga de abono mensual" as u19
 usecase "20.Consultar carga de abono mensual" as u20
 usecase "21.Emitir comprobante carga de abono mensual" as u21
 
+:Sistemas UTN: as s 
+usecase "39.Consultar usuario utn" as u39
 
-:responsable estacionamiento: as re
+:Responsable Estacionamiento: as re
 usecase "22.Registrar estacionamiento" as u22
 
-:responsable lugar: as rl 
+:Responsable lugar: as rl 
 usecase "23.Registrar lugar" as u23
-usecase "24.Modificae lugar" as u24
+usecase "24.Modificar lugar" as u24
 usecase "25.Registrar tipo de lugar" as u25
 usecase "26.Modificar tipo de lugar" as u26
 usecase "27 Consultar tipo de lugar" as u27
-:responsable cuenta: as rc
+
+:Responsable cuenta: as rc
 usecase "28.Registrar tipo de cuenta" as u28
 usecase "29.Consultar tipo de cuenta" as u29
 usecase "30.Modificar tipo de cuenta" as u30
 usecase "31.Modificar cuenta" as u31
 usecase "32.Consultar cuenta" as u32
-:responsable tarifa: as rt
+
+:Responsable tarifa: as rt
 usecase "33 Registrar tarifa" as u33
 usecase "34.Modificar datos de tarifa" as u34
 usecase "35.Consultar datos tarifa" as u35
-:responsable tipo usuario: as rtu
+
+:Responsable tipo usuario: as rtu
 usecase "36.Registrar tipo de usuario" as u36
 usecase "37.Modificar tipo de usuario" as u37
 
-
-
-
-
 eie --> u1
 eie --> u2
-eie --> u3
+u2 ..> u3:<<extend>> 
+'consultar extensión
 
 
-roa ..> u13:<<include>>
+roa --> u12
+roa --> u13
 roa --> u14
 roa --> u15
 roa --> u16
 roa --> u17
+roa --> u40
 
 u16 ..> u18:<<include>>
 
 roa --> u19
 roa --> u20
 u19 ..> u21:<<include>>
+
+u12 ..> u13:<<include>>
 
 re --> u22
 
@@ -82,5 +89,10 @@ rt --> u35
 
 rtu --> u36
 rtu --> u37
+
+s --> u39 
+u14 ..> u39:<<include>>
+u12 <.. u14:<<extend>>
+
 
 @enduml
